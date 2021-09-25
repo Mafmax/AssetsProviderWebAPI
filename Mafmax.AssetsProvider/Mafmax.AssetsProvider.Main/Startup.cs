@@ -1,7 +1,9 @@
+using Mafmax.AssetsProvider.DAL.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -14,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace Mafmax.AssetsProvider.Main
 {
+#pragma warning disable CS1591
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -26,7 +29,11 @@ namespace Mafmax.AssetsProvider.Main
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddDbContext<APContext>(opt =>
+            {
+                opt.UseSqlServer(Configuration.GetConnectionString("AssetsProvider"),
+                    x => x.MigrationsAssembly("Mafmax.AssetsProvider.DAL.Migrations"));
+            });
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -45,7 +52,7 @@ namespace Mafmax.AssetsProvider.Main
             }
 
             app.UseHttpsRedirection();
-            
+
             app.UseRouting();
 
             app.UseAuthorization();

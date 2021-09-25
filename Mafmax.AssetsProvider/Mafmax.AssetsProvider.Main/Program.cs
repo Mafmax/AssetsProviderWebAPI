@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Mafmax.AssetsProvider.Main
 {
+#pragma warning disable CS1591
     public class Program
     {
         public static void Main(string[] args)
