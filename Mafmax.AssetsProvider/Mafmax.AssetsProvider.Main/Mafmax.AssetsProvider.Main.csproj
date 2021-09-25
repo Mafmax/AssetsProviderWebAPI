@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.10">
       <PrivateAssets>all</PrivateAssets>
@@ -18,10 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\Mafmax.AssetsProvider.BLL\Mafmax.AssetsProvider.BLL.csproj" />
     <ProjectReference Include="..\Mafmax.AssetsProvider.DAL.Migrations\Mafmax.AssetsProvider.DAL.Migrations.csproj" />
     <ProjectReference Include="..\Mafmax.AssetsProvider.DAL\Mafmax.AssetsProvider.DAL.csproj" />
   </ItemGroup>

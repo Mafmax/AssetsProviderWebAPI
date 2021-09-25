@@ -1,3 +1,4 @@
+using Mafmax.AssetsProvider.BLL.Services;
 using Mafmax.AssetsProvider.DAL.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,6 +13,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Mafmax.AssetsProvider.Main
@@ -34,7 +36,9 @@ namespace Mafmax.AssetsProvider.Main
                 opt.UseSqlServer(Configuration.GetConnectionString("AssetsProvider"),
                     x => x.MigrationsAssembly("Mafmax.AssetsProvider.DAL.Migrations"));
             });
+            services.AddScoped<IAssetsProviderService, AssetsProviderService>();
             services.AddControllers();
+            services.AddAutoMapper(typeof(Startup));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mafmax.AssetsProvider", Version = "v1" });
