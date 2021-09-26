@@ -25,9 +25,19 @@ namespace Mafmax.AssetsProvider.DAL.Entities
         public string Name { get; set; }
 
         /// <summary>
+        /// FK for Country 
+        /// </summary>
+        public int CountryId { get; set; }
+        
+        /// <summary>
         /// Company country
         /// </summary>
         public Country Country { get; set; }
+
+        /// <summary>
+        /// FK for Industry
+        /// </summary>
+        public int IndustryId { get; set; }
 
         /// <summary>
         /// Company industry

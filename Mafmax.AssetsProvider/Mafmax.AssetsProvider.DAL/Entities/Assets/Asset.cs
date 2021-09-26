@@ -38,10 +38,19 @@ namespace Mafmax.AssetsProvider.DAL.Entities
         public string Name { get; set; }
 
         /// <summary>
+        /// FK for Issuer
+        /// </summary>
+        public int IssuerId { get; set; }
+
+        /// <summary>
         /// Assets issuer company
         /// </summary>
         public Issuer Issuer { get; set; }
 
+        /// <summary>
+        /// FK for Stock
+        /// </summary>
+        public int StockId { get; set; }
 
         /// <summary>
         /// Stock exchange organization
