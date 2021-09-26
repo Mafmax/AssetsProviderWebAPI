@@ -61,6 +61,6 @@ namespace Mafmax.AssetsProvider.BLL.DTOs
         /// <summary>
         /// Asset class e.g. share or bond
         /// </summary>
-        public string Class { get; }
+        public string Class { get; set; }
     }
 }

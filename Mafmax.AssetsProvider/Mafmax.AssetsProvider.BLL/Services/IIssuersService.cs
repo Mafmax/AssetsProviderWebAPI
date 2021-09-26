@@ -23,6 +23,10 @@ namespace Mafmax.AssetsProvider.BLL.Services
         /// </summary>
         /// <param name="issuerId">Issuer identifier</param>
         /// <returns></returns>
-        Task<IEnumerable<ShortAssetDto>> GetAssetsByIssuerAsync(int issuerId);
+        /// <exception cref="KeyNotFoundException">Throws if issuer company not found</exception>
+        Task<IEnumerable<ShortAssetDto>> GetAssetsAsync(int issuerId);
+
+
+
     }
 }

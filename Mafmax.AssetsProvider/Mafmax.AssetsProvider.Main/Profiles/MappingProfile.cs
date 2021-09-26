@@ -19,7 +19,7 @@ namespace Mafmax.AssetsProvider.Main.Profiles
         public MappingProfile()
         {
             CreateMap<Asset, ShortAssetDto>()
-                .ForMember(dest => dest.ExchangeStockCode, opt => opt.MapFrom(src => src.Stock.Name))
+                .ForMember(dest => dest.ExchangeStockCode, opt => opt.MapFrom(src => src.Stock.Key))
                 .ForMember(dest => dest.IssuerName, opt => opt.MapFrom(src => src.Issuer.Name));
 
             CreateMap<Issuer, IssuerDto>()
@@ -31,7 +31,6 @@ namespace Mafmax.AssetsProvider.Main.Profiles
             CreateMap<StockExchange, StockExchangeDto>();
 
             CreateMap<Asset, AssetDto>();
-
 
 
         }

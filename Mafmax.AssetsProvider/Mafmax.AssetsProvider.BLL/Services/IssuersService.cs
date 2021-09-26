@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Mafmax.AssetsProvider.BLL.DTOs;
 using Mafmax.AssetsProvider.DAL.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,10 +26,15 @@ namespace Mafmax.AssetsProvider.BLL.Services
 
         #region IIssuersService
 #pragma warning disable CS1591
-        public async Task<IEnumerable<ShortAssetDto>> GetAssetsByIssuerAsync(int issuerId)
+        public async Task<IEnumerable<ShortAssetDto>> GetAssetsAsync(int issuerId)
         {
+            var issuer = await db.Issuers.FindAsync(issuerId);
+            if (issuer is null) throw new KeyNotFoundException($"Issuer with id {issuerId} not found");
             return await Task.Run(() =>
-            db.Assets.Where(x => x.Issuer.Id.Equals(issuerId) && x.Circulation.IsInCirculation)
+            db.Assets
+            .Include(x=>x.Stock)
+            .Where(x => x.IssuerId == issuerId)
+            .AsEnumerable()
             .OrderBy(x => x.Circulation.Start.Ticks)
             .Select(x => mapper.Map<ShortAssetDto>(x))
             );
@@ -38,7 +44,10 @@ namespace Mafmax.AssetsProvider.BLL.Services
         {
             return await Task.Run(() =>
             {
-                return db.Issuers.Select(x => mapper.Map<IssuerDto>(x));
+                return db.Issuers
+                .Include(x=>x.Country)
+                .Include(x=>x.Industry)
+                .Select(x => mapper.Map<IssuerDto>(x));
             });
         }
 #pragma warning restore CS1591

@@ -33,8 +33,9 @@ namespace Mafmax.AssetsProvider.Main
         {
             services.AddDbContext<APContext>(opt =>
             {
-                opt.UseSqlServer(Configuration.GetConnectionString("AssetsProvider"),
-                    x => x.MigrationsAssembly("Mafmax.AssetsProvider.DAL.Migrations"));
+                /*opt.UseSqlServer(Configuration.GetConnectionString("AssetsProvider"),
+                    x => x.MigrationsAssembly("Mafmax.AssetsProvider.DAL.Migrations"));*/
+                opt.UseInMemoryDatabase("AssetsProvider");
             });
             services.AddScoped<IAssetsService, AssetsService>();
             services.AddScoped<IIssuersService, IssuersService>();

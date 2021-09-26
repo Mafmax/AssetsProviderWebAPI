@@ -11,7 +11,7 @@ namespace Mafmax.AssetsProvider.BLL.Services
     /// <summary>
     /// Base class for all AssetsProvider services
     /// </summary>
-    public abstract class AssetsProviderService
+    public abstract class AssetsProviderService 
     {
         /// <summary>
         /// Database context
@@ -33,5 +33,7 @@ namespace Mafmax.AssetsProvider.BLL.Services
             this.db = db;
             this.mapper = mapper;
         }
+
+
     }
 }

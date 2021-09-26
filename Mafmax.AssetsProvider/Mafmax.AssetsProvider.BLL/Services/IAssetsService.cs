@@ -18,14 +18,14 @@ namespace Mafmax.AssetsProvider.BLL.Services
         /// </summary>
         /// <param name="assetId">Identifier to find</param>
         /// <returns></returns>
-        Task<AssetDto> GetAssetByIdAsync(int assetId);
+        Task<AssetDto> GetByIdAsync(int assetId);
 
         /// <summary>
         /// Finds asset with isin
         /// </summary>
         /// <param name="assetISIN">Identifier to find</param>
         /// <returns></returns>
-        Task<AssetDto> GetAssetByISINAsync(string assetISIN);
+        Task<AssetDto> GetByISINAsync(string assetISIN);
 
         /// <summary>
         /// Finds asset by value. Value may be part of isin, name or ticker
