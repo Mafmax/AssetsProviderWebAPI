@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Mafmax.AssetsProvider.BLL.DTOs;
 using Mafmax.AssetsProvider.DAL.Context;
+using Mafmax.AssetsProvider.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,14 +33,13 @@ namespace Mafmax.AssetsProvider.BLL.Services
         {
             var issuer = await db.Issuers.FindAsync(issuerId);
             if (issuer is null) throw new KeyNotFoundException($"Issuer with id {issuerId} not found");
-            return await Task.Run(() =>
-            db.Assets
-            .Include(x=>x.Stock)
+            var assets = await db.Assets
+            .Include(x => x.Stock)
             .Where(x => x.IssuerId == issuerId)
-            .AsEnumerable()
+            .ToListAsync();
+            return assets
             .OrderBy(x => x.Circulation.Start.Ticks)
-            .Select(x => mapper.Map<ShortAssetDto>(x))
-            );
+            .Select(x => mapper.Map<ShortAssetDto>(x));
         }
 
         /// <summary>
@@ -48,13 +48,11 @@ namespace Mafmax.AssetsProvider.BLL.Services
         /// <returns></returns>
         public async Task<IEnumerable<IssuerDto>> GetIssuersAsync()
         {
-            return await Task.Run(() =>
-            {
-                return db.Issuers
-                .Include(x=>x.Country)
-                .Include(x=>x.Industry)
-                .Select(x => mapper.Map<IssuerDto>(x));
-            });
+            var issuers = await db.Issuers
+                .Include(x => x.Country)
+                .Include(x => x.Industry)
+                .ToListAsync();
+            return issuers.Select(x => mapper.Map<IssuerDto>(x));
         }
         #endregion
     }

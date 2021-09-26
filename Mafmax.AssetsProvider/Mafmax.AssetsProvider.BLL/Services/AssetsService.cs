@@ -33,11 +33,10 @@ namespace Mafmax.AssetsProvider.BLL.Services
         public async Task<IEnumerable<Asset>> FindAssetsAsync(string searchPattern)
         {
             Regex regex = new(searchPattern);
-
             bool searchPredicate(Asset x) =>
                 regex.IsMatch(x.Name) || regex.IsMatch(x.Ticker) || regex.IsMatch(x.ISIN);
-
-            return await Task.Run(() => db.Assets.Where(searchPredicate));
+            var assets = await db.Assets.ToListAsync();
+            return assets.Where(searchPredicate);
         }
 
         private IQueryable<Asset> FullAssetWithIncludes => db.Assets
@@ -84,15 +83,7 @@ namespace Mafmax.AssetsProvider.BLL.Services
         /// <returns></returns>
         public async Task<AssetDto> GetByISINAsync(string assetISIN)
         {
-            Task<Asset> assetTask = Task.Run(() =>
-            {
-                return FullAssetWithIncludes
-                .FirstOrDefault(x => x.ISIN == assetISIN);
-
-            });
-
-            Asset asset = await assetTask;
-
+            Asset asset = await FullAssetWithIncludes.FirstOrDefaultAsync(x => x.ISIN == assetISIN);
             return mapper.Map<AssetDto>(asset);
         }
         #endregion
