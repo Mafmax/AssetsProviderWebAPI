@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Mafmax.AssetsProvider.DAL.Migrations
 {
-    [DbContext(typeof(APContext))]
+    [DbContext(typeof(AssetsProviderContext))]
     partial class APContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -22,13 +22,11 @@ namespace Mafmax.AssetsProvider.DAL.Entities
         /// <summary>
         /// Stock exchange key e.g. MOEX
         /// </summary>
-      
         public string Key { get; set; }
 
         /// <summary>
         /// Stock exchange name
         /// </summary>
         public string Name { get; set; }
-
     }
 }

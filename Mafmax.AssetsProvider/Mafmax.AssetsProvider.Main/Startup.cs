@@ -1,4 +1,5 @@
 using Mafmax.AssetsProvider.BLL.Services;
+using Mafmax.AssetsProvider.BLL;
 using Mafmax.AssetsProvider.DAL.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,25 +19,38 @@ using System.Threading.Tasks;
 
 namespace Mafmax.AssetsProvider.Main
 {
-#pragma warning disable CS1591
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
         public IConfiguration Configuration { get; }
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="services"></param>
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<APContext>(opt =>
+            services.AddDbContext<AssetsProviderContext>(opt =>
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("AssetsProvider"),
                     x => x.MigrationsAssembly("Mafmax.AssetsProvider.DAL.Migrations"));
                // opt.UseInMemoryDatabase("AssetsProvider");
             });
+            services.addcustomdbcontext
             services.AddScoped<IAssetsService, AssetsService>();
             services.AddScoped<IIssuersService, IssuersService>();
             services.AddControllers();
@@ -47,6 +61,11 @@ namespace Mafmax.AssetsProvider.Main
             });
         }
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

@@ -31,9 +31,6 @@ namespace Mafmax.AssetsProvider.Main.Profiles
             CreateMap<StockExchange, StockExchangeDto>();
 
             CreateMap<Asset, AssetDto>();
-
-
         }
-
     }
 }

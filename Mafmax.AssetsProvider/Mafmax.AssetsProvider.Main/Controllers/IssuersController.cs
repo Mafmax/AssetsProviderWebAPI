@@ -31,8 +31,6 @@ namespace Mafmax.AssetsProvider.Main.Controllers
             this.logger = logger;
         }
 
-
-
         /// <summary>
         /// Gets all issuer companies
         /// </summary>
@@ -58,7 +56,7 @@ namespace Mafmax.AssetsProvider.Main.Controllers
         [HttpGet("{issuerId}")]
         public async Task<ActionResult<IEnumerable<ShortAssetDto>>> GetAssets(int issuerId)
         {
-            IEnumerable<ShortAssetDto> assets = Enumerable.Empty<ShortAssetDto>();
+            IEnumerable<ShortAssetDto> assets;
             try
             {
                 assets = await service.GetAssetsAsync(issuerId);

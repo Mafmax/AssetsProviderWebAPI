@@ -5,11 +5,15 @@ VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mafmax.AssetsProvider.Main", "Mafmax.AssetsProvider.Main\Mafmax.AssetsProvider.Main.csproj", "{7CD4922A-15E7-4600-BEC5-F6F5FA0BF438}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mafmax.AssetsProvider.DAL", "Mafmax.AssetsProvider.DAL\Mafmax.AssetsProvider.DAL.csproj", "{95C381F2-D25C-4F53-A4F6-4EB24489D555}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mafmax.AssetsProvider.DAL", "Mafmax.AssetsProvider.DAL\Mafmax.AssetsProvider.DAL.csproj", "{95C381F2-D25C-4F53-A4F6-4EB24489D555}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mafmax.AssetsProvider.DAL.Migrations", "Mafmax.AssetsProvider.DAL.Migrations\Mafmax.AssetsProvider.DAL.Migrations.csproj", "{36A7DFD7-B63F-4B2D-8844-E1ACC13E445D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mafmax.AssetsProvider.DAL.Migrations", "Mafmax.AssetsProvider.DAL.Migrations\Mafmax.AssetsProvider.DAL.Migrations.csproj", "{36A7DFD7-B63F-4B2D-8844-E1ACC13E445D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mafmax.AssetsProvider.BLL", "Mafmax.AssetsProvider.BLL\Mafmax.AssetsProvider.BLL.csproj", "{637C6A49-3EEB-4430-91D5-54EF497B1547}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mafmax.AssetsProvider.BLL", "Mafmax.AssetsProvider.BLL\Mafmax.AssetsProvider.BLL.csproj", "{637C6A49-3EEB-4430-91D5-54EF497B1547}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mafmax.AssetsProvider.Main.Tests", "Mafmax.AssetsProvider.Main.Tests\Mafmax.AssetsProvider.Main.Tests.csproj", "{33251A3F-C67F-4AAE-85C9-6BB762CA8826}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mafmax.AssetsProvider.Mocks", "Mafmax.AssetsProvider.Mocks\Mafmax.AssetsProvider.Mocks.csproj", "{D1F93BA1-CB37-4577-8944-B63AA8423BE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{637C6A49-3EEB-4430-91D5-54EF497B1547}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{637C6A49-3EEB-4430-91D5-54EF497B1547}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{637C6A49-3EEB-4430-91D5-54EF497B1547}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33251A3F-C67F-4AAE-85C9-6BB762CA8826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33251A3F-C67F-4AAE-85C9-6BB762CA8826}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33251A3F-C67F-4AAE-85C9-6BB762CA8826}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33251A3F-C67F-4AAE-85C9-6BB762CA8826}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1F93BA1-CB37-4577-8944-B63AA8423BE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1F93BA1-CB37-4577-8944-B63AA8423BE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1F93BA1-CB37-4577-8944-B63AA8423BE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1F93BA1-CB37-4577-8944-B63AA8423BE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

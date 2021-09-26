@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Mafmax.AssetsProvider.DAL.Migrations
 {
-    [DbContext(typeof(APContext))]
+    [DbContext(typeof(AssetsProviderContext))]
     [Migration("20210925074135_InitialCreate")]
     partial class InitialCreate
     {

@@ -62,7 +62,6 @@ namespace Mafmax.AssetsProvider.DAL.Entities
         /// </summary>
         public CirculationPeriod Circulation { get; set; }
 
-
         /// <summary>
         /// Currency name e.g. USD, RUB
         /// </summary>

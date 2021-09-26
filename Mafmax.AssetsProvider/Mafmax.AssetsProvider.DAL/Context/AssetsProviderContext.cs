@@ -11,13 +11,13 @@ namespace Mafmax.AssetsProvider.DAL.Context
     /// <summary>
     /// Database context for Assets Provider application
     /// </summary>
-    public class APContext : DbContext
+    public class AssetsProviderContext : DbContext
     {
         /// <summary>
         /// Create APContext
         /// </summary>
         /// <param name="options">Context creating options</param>
-        public APContext(DbContextOptions<APContext> options) : base(options)
+        public AssetsProviderContext(DbContextOptions<AssetsProviderContext> options) : base(options)
         {
 
         }

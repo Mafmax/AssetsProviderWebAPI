@@ -25,7 +25,11 @@ namespace Mafmax.AssetsProvider.BLL.Services
         }
 
         #region IIssuersService
-#pragma warning disable CS1591
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="issuerId"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<ShortAssetDto>> GetAssetsAsync(int issuerId)
         {
             var issuer = await db.Issuers.FindAsync(issuerId);
@@ -40,6 +44,10 @@ namespace Mafmax.AssetsProvider.BLL.Services
             );
         }
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<IssuerDto>> GetIssuersAsync()
         {
             return await Task.Run(() =>
@@ -50,7 +58,6 @@ namespace Mafmax.AssetsProvider.BLL.Services
                 .Select(x => mapper.Map<IssuerDto>(x));
             });
         }
-#pragma warning restore CS1591
         #endregion
     }
 }

@@ -17,6 +17,7 @@ namespace Mafmax.AssetsProvider.DAL.Entities
         /// </summary>
         [Key]
         public int Id { get; set; }
+
         /// <summary>
         /// Country name
         /// </summary>

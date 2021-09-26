@@ -41,12 +41,12 @@ namespace Mafmax.AssetsProvider.BLL.Services
 
             return await Task.Run(() => db.Assets.Where(searchPredicate));
         }
+
         private IQueryable<Asset> FullAssetWithIncludes => db.Assets
                .Include(x => x.Stock)
                .Include(x => x.Issuer).ThenInclude(x => x.Country)
                .Include(x => x.Issuer).ThenInclude(x => x.Industry);
 
-#pragma warning disable CS1591
         #region IAssetsProviderService
         public async Task<Dictionary<string, IEnumerable<ShortAssetDto>>> FindAssetsAsync(string searchValue, string assetClass = null)
         {
@@ -61,7 +61,11 @@ namespace Mafmax.AssetsProvider.BLL.Services
                 .ToDictionary(x => x.Key, x => x.Select(y => mapper.Map<ShortAssetDto>(y)));
 
         }
-       
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="assetId"></param>
+        /// <returns></returns>
         public async Task<AssetDto> GetByIdAsync(int assetId)
         {
             Asset asset = await FullAssetWithIncludes
@@ -69,8 +73,11 @@ namespace Mafmax.AssetsProvider.BLL.Services
 
             return mapper.Map<AssetDto>(asset);
         }
-
-
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="assetISIN"></param>
+        /// <returns></returns>
         public async Task<AssetDto> GetByISINAsync(string assetISIN)
         {
             Task<Asset> assetTask = Task.Run(() =>
@@ -83,14 +90,8 @@ namespace Mafmax.AssetsProvider.BLL.Services
             Asset asset = await assetTask;
 
             return mapper.Map<AssetDto>(asset);
-
         }
-
-
-
-
         #endregion
-#pragma warning restore CS1591
 
 
     }
