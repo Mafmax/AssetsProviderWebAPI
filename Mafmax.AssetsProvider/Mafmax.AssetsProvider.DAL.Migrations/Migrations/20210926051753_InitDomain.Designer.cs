@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mafmax.AssetsProvider.DAL.Migrations
 {
     [DbContext(typeof(APContext))]
-    [Migration("20210925102030_InitDomain")]
+    [Migration("20210926051753_InitDomain")]
     partial class InitDomain
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,8 +40,8 @@ namespace Mafmax.AssetsProvider.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IssuerId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("IssuerId")
+                        .HasColumnType("int");
 
                     b.Property<int>("LotSize")
                         .HasColumnType("int");
@@ -49,8 +49,8 @@ namespace Mafmax.AssetsProvider.DAL.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("StockId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("StockId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Ticker")
                         .IsRequired()
@@ -99,8 +99,10 @@ namespace Mafmax.AssetsProvider.DAL.Migrations
 
             modelBuilder.Entity("Mafmax.AssetsProvider.DAL.Entities.Issuer", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("CountryId")
                         .HasColumnType("int");
@@ -122,8 +124,10 @@ namespace Mafmax.AssetsProvider.DAL.Migrations
 
             modelBuilder.Entity("Mafmax.AssetsProvider.DAL.Entities.StockExchange", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Key")
                         .HasColumnType("nvarchar(max)");

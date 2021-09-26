@@ -17,7 +17,7 @@ namespace Mafmax.AssetsProvider.DAL.Entities
         /// Identifier
         /// </summary>
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Company name

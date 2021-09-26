@@ -37,7 +37,8 @@ namespace Mafmax.AssetsProvider.DAL.Migrations
                 name: "StockExchange",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Key = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -50,7 +51,8 @@ namespace Mafmax.AssetsProvider.DAL.Migrations
                 name: "Issuers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CountryId = table.Column<int>(type: "int", nullable: true),
                     IndustryId = table.Column<int>(type: "int", nullable: true)
@@ -81,8 +83,8 @@ namespace Mafmax.AssetsProvider.DAL.Migrations
                     Ticker = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ISIN = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IssuerId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    StockId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    IssuerId = table.Column<int>(type: "int", nullable: true),
+                    StockId = table.Column<int>(type: "int", nullable: true),
                     StartCirculation = table.Column<DateTime>(type: "datetime2", nullable: true),
                     EndCirculation = table.Column<DateTime>(type: "datetime2", nullable: true),
                     BaseCurrency = table.Column<string>(type: "nvarchar(max)", nullable: true),
