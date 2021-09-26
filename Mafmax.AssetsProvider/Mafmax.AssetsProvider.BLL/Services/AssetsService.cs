@@ -76,7 +76,7 @@ namespace Mafmax.AssetsProvider.BLL.Services
             Task<Asset> assetTask = Task.Run(() =>
             {
                 return FullAssetWithIncludes
-                .FirstOrDefault(x => x.ISIN.Equals(assetISIN, StringComparison.OrdinalIgnoreCase));
+                .FirstOrDefault(x => x.ISIN == assetISIN);
 
             });
 

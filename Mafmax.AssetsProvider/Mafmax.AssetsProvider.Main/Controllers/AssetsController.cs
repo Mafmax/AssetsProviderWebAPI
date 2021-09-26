@@ -75,7 +75,7 @@ namespace Mafmax.AssetsProvider.Main.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [HttpGet("{searchQuery}/{classFilter}")]
+        [HttpGet("search/{searchQuery}/{classFilter}")]
         public async Task<ActionResult<Dictionary<string, IEnumerable<ShortAssetDto>>>> Find(string searchQuery, string classFilter)
         {
             const int minSearchQueryLength = 3;
@@ -99,7 +99,7 @@ namespace Mafmax.AssetsProvider.Main.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [HttpGet("{searchQuery}")]
+        [HttpGet("search/{searchQuery}")]
         public async Task<ActionResult<Dictionary<string, IEnumerable<ShortAssetDto>>>> Find(string searchQuery)
         {
             return await Find(searchQuery, null);
