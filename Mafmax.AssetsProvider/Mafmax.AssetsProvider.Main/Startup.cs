@@ -36,7 +36,8 @@ namespace Mafmax.AssetsProvider.Main
                 opt.UseSqlServer(Configuration.GetConnectionString("AssetsProvider"),
                     x => x.MigrationsAssembly("Mafmax.AssetsProvider.DAL.Migrations"));
             });
-            services.AddScoped<IAssetsProviderService, AssetsProviderService>();
+            services.AddScoped<IAssetsService, AssetsService>();
+            services.AddScoped<IIssuersService, IssuersService>();
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
             services.AddSwaggerGen(c =>
