@@ -3,9 +3,7 @@ using Mafmax.AssetsProvider.BLL.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Mafmax.AssetsProvider.Main.Controllers
@@ -30,6 +28,7 @@ namespace Mafmax.AssetsProvider.Main.Controllers
             this.service = service;
             this.logger = logger;
         }
+
         /// <summary>
         /// Gets asset by identifier
         /// </summary>
@@ -46,6 +45,7 @@ namespace Mafmax.AssetsProvider.Main.Controllers
             if (asset is null) return NotFound();
             return asset;
         }
+
         /// <summary>
         /// Gets asset by identifier
         /// </summary>

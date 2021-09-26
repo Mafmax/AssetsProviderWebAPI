@@ -6,9 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Mafmax.AssetsProvider.BLL.Services
@@ -23,7 +21,7 @@ namespace Mafmax.AssetsProvider.BLL.Services
         /// </summary>
         /// <param name="db"></param>
         /// <param name="mapper"></param>
-        public AssetsService(APContext db, IMapper mapper) : base(db, mapper)
+        public AssetsService(AssetsProviderContext db, IMapper mapper) : base(db, mapper)
         {
         }
 
@@ -48,6 +46,12 @@ namespace Mafmax.AssetsProvider.BLL.Services
                .Include(x => x.Issuer).ThenInclude(x => x.Industry);
 
         #region IAssetsProviderService
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="searchValue"></param>
+        /// <param name="assetClass"></param>
+        /// <returns></returns>
         public async Task<Dictionary<string, IEnumerable<ShortAssetDto>>> FindAssetsAsync(string searchValue, string assetClass = null)
         {
             bool classFilterPredicate(Asset x) =>

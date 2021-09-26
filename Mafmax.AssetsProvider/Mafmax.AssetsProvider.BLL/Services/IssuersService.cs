@@ -2,10 +2,8 @@
 using Mafmax.AssetsProvider.BLL.DTOs;
 using Mafmax.AssetsProvider.DAL.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Mafmax.AssetsProvider.BLL.Services
@@ -20,7 +18,7 @@ namespace Mafmax.AssetsProvider.BLL.Services
         /// </summary>
         /// <param name="db"></param>
         /// <param name="mapper"></param>
-        public IssuersService(APContext db, IMapper mapper) : base(db, mapper)
+        public IssuersService(AssetsProviderContext db, IMapper mapper) : base(db, mapper)
         {
         }
 

@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mafmax.AssetsProvider.BLL.DTOs
+﻿namespace Mafmax.AssetsProvider.BLL.DTOs
 {
     /// <summary>
     /// Short information about asset
     /// </summary>
     public class ShortAssetDto
     {
-
-        
         /// <summary>
         /// Asset identifier
         /// </summary>
@@ -47,7 +39,5 @@ namespace Mafmax.AssetsProvider.BLL.DTOs
         /// Asset issuer name
         /// </summary>
         public string IssuerName { get; set; }
-
-
     }
 }

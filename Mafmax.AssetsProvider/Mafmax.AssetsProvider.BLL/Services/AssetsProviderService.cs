@@ -1,10 +1,5 @@
 ﻿using AutoMapper;
 using Mafmax.AssetsProvider.DAL.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mafmax.AssetsProvider.BLL.Services
 {
@@ -16,7 +11,7 @@ namespace Mafmax.AssetsProvider.BLL.Services
         /// <summary>
         /// Database context
         /// </summary>
-        protected readonly APContext db;
+        protected readonly AssetsProviderContext db;
 
         /// <summary>
         /// AutoMapper object
@@ -28,12 +23,10 @@ namespace Mafmax.AssetsProvider.BLL.Services
         /// </summary>
         /// <param name="db">Database context</param>
         /// <param name="mapper">AutoMapper</param>
-        public AssetsProviderService(APContext db, IMapper mapper)
+        public AssetsProviderService(AssetsProviderContext db, IMapper mapper)
         {
             this.db = db;
             this.mapper = mapper;
         }
-
-
     }
 }

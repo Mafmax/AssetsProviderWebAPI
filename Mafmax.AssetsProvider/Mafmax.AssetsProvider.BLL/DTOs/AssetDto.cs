@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mafmax.AssetsProvider.BLL.DTOs
+﻿namespace Mafmax.AssetsProvider.BLL.DTOs
 {
     /// <summary>
     /// Full information asset data transfer object
@@ -36,7 +30,6 @@ namespace Mafmax.AssetsProvider.BLL.DTOs
         /// </summary>
         public IssuerDto Issuer { get; set; }
 
-
         /// <summary>
         /// Stock exchange organization
         /// </summary>
@@ -46,7 +39,6 @@ namespace Mafmax.AssetsProvider.BLL.DTOs
         /// Period of assets circulation
         /// </summary>
         public CirculationPeriodDto Circulation { get; set; }
-
 
         /// <summary>
         /// Currency name e.g. USD, RUB
